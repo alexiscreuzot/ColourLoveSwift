@@ -14,8 +14,6 @@ class PatternsVC: UIViewController, UICollectionViewDataSource, UICollectionView
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var searchBar: UISearchBar!
     
-    var patterns:Array<RLMObject> = []
-    
     // MARK: - Lifecycle
     
     override func viewDidLoad()
@@ -30,7 +28,7 @@ class PatternsVC: UIViewController, UICollectionViewDataSource, UICollectionView
         
         // We check the database, and proceed to do a web request
         // if the database doesn't return any results
-        if (self.patterns.count == 0) {
+        if (Pattern.allObjects().count == 0) {
             self.requestPatterns()
         }
     }
@@ -50,7 +48,6 @@ class PatternsVC: UIViewController, UICollectionViewDataSource, UICollectionView
             if(error != nil){
                 SVProgressHUD.showErrorWithStatus(error?.localizedDescription)
             }else{
-                self.patterns = result!
                 self.collectionView.reloadData()
                 SVProgressHUD.showSuccessWithStatus("Done")
             }
@@ -61,11 +58,11 @@ class PatternsVC: UIViewController, UICollectionViewDataSource, UICollectionView
     
     
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return self.patterns.count;
+        return Int(Pattern.allObjects().count);
     }
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-        let pattern:Pattern = self.patterns[indexPath.row] as! Pattern
+        let pattern:Pattern = Pattern.allObjects()[UInt(indexPath.row)] as! Pattern
         
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier(PatternCell.className(), forIndexPath: indexPath)
         (cell as! PatternCell).setPattern(pattern)

@@ -14,8 +14,7 @@ class ColorsVC: UIViewController, UITableViewDataSource, UITableViewDelegate, UI
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var searchBar: UISearchBar!
     
-    var colors:Array<RLMObject> = []
-    
+
     // MARK: - Lifecycle
     
     override func viewDidLoad()
@@ -30,7 +29,7 @@ class ColorsVC: UIViewController, UITableViewDataSource, UITableViewDelegate, UI
         
         // We check the database, and proceed to do a web request
         // if the database doesn't return any results
-        if (self.colors.count == 0) {
+        if (Color.allObjects().count == 0) {
             self.requestColors()
         }
     }
@@ -53,7 +52,6 @@ class ColorsVC: UIViewController, UITableViewDataSource, UITableViewDelegate, UI
             if(error != nil){
                 SVProgressHUD.showErrorWithStatus(error?.localizedDescription)
             }else{
-                self.colors = result!
                 self.tableView.reloadData()
                 SVProgressHUD.showSuccessWithStatus("Done")
             }
@@ -64,12 +62,12 @@ class ColorsVC: UIViewController, UITableViewDataSource, UITableViewDelegate, UI
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int
     {
-        return self.colors.count
+        return Int(Color.allObjects().count)
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell
     {
-        let color:Color = self.colors[indexPath.row] as! Color
+        let color:Color = Color.allObjects()[UInt(indexPath.row)] as! Color
         
         let cell = tableView.dequeueReusableCellWithIdentifier(ColorCell.className(), forIndexPath: indexPath)
         (cell as! ColorCell).setColor(color)

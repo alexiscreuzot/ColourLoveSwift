@@ -14,8 +14,6 @@ class PalettesVC: UIViewController, UITableViewDataSource, UITableViewDelegate, 
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var searchBar: UISearchBar!
     
-    private var palettes:Array<RLMObject> = []
-    
     // MARK: - Lifecycle
     
     override func viewDidLoad()
@@ -30,7 +28,7 @@ class PalettesVC: UIViewController, UITableViewDataSource, UITableViewDelegate, 
         
         // We check the database, and proceed to do a web request
         // if the database doesn't return any results
-        if (self.palettes.count == 0) {
+        if (Palette.allObjects().count == 0) {
             self.requestPalettes()
         }
     }
@@ -53,7 +51,6 @@ class PalettesVC: UIViewController, UITableViewDataSource, UITableViewDelegate, 
             if(error != nil){
                 SVProgressHUD.showErrorWithStatus(error?.localizedDescription)
             }else{
-                self.palettes = result!
                 self.tableView.reloadData()
                 SVProgressHUD.showSuccessWithStatus("Done")
             }
@@ -64,12 +61,12 @@ class PalettesVC: UIViewController, UITableViewDataSource, UITableViewDelegate, 
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int
     {
-        return Int(self.palettes.count)
+        return Int(Palette.allObjects().count)
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell
     {
-        let palette:Palette = self.palettes[indexPath.row] as! Palette
+        let palette:Palette = Palette.allObjects()[UInt(indexPath.row)] as! Palette
         
         let cell = tableView.dequeueReusableCellWithIdentifier(PaletteCell.className(), forIndexPath: indexPath)
         (cell as! PaletteCell).setPalette(palette)

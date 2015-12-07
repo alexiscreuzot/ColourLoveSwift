@@ -13,15 +13,11 @@ class Palette: RLMObject {
     dynamic var username = ""
     dynamic var imageUrl = ""
     
-    var selected:Bool = false
+    dynamic var selected:Bool = false
     
     override static func primaryKey() -> String?
     {
         return "id"
-    }
-    
-    override static func ignoredProperties() -> [AnyObject]?{
-        return ["selected"]
     }
     
 }

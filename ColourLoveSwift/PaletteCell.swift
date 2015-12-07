@@ -41,7 +41,11 @@ class PaletteCell: UITableViewCell {
     }
     
     func toggleSelectedAnimated(animated: Bool) {
-        self.palette!.selected = !self.palette!.selected
+        let realm = RLMRealm.defaultRealm()
+        try! realm.transactionWithBlock {
+             self.palette!.selected = !self.palette!.selected
+        }
+       
         self.setPaletteDisplayed(self.palette!.selected, animated: true)
     }
     
