@@ -141,7 +141,7 @@
 				FA9314341BFB611700D3FE66 /* Models */,
 				FA9314351BFB611C00D3FE66 /* Extensions */,
 			);
-			name = Classes;
+			path = Classes;
 			sourceTree = "<group>";
 		};
 		FA9314321BFB60F700D3FE66 /* Controllers */ = {
@@ -153,7 +153,7 @@
 				FA9314411BFB655A00D3FE66 /* Patterns */,
 				FA9314421BFB656200D3FE66 /* Users */,
 			);
-			name = Controllers;
+			path = Controllers;
 			sourceTree = "<group>";
 		};
 		FA9314331BFB610800D3FE66 /* Resources */ = {
@@ -163,7 +163,7 @@
 				FA93142B1BFB604100D3FE66 /* Info.plist */,
 				FAAEFFEE1C15A6B6001B3ED8 /* Storyboards */,
 			);
-			name = Resources;
+			path = Resources;
 			sourceTree = "<group>";
 		};
 		FA9314341BFB611700D3FE66 /* Models */ = {
@@ -177,7 +177,7 @@
 				FA4E1C131C15BD32009823D2 /* Pattern+Networking.swift */,
 				FA9314471BFB66EF00D3FE66 /* User.swift */,
 			);
-			name = Models;
+			path = Models;
 			sourceTree = "<group>";
 		};
 		FA9314351BFB611C00D3FE66 /* Extensions */ = {
@@ -188,7 +188,7 @@
 				FA4E1C0D1C15B295009823D2 /* UIStoryboard+Extensions.swift */,
 				FA4E1C171C15C51D009823D2 /* Realm+Extensions.swift */,
 			);
-			name = Extensions;
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		FA93143F1BFB655000D3FE66 /* Colors */ = {
@@ -198,7 +198,7 @@
 				FA93141F1BFB604100D3FE66 /* ColorsVC.swift */,
 				FA9314361BFB614300D3FE66 /* ColorDetailVC.swift */,
 			);
-			name = Colors;
+			path = Colors;
 			sourceTree = "<group>";
 		};
 		FA9314401BFB655500D3FE66 /* Palettes */ = {
@@ -207,7 +207,7 @@
 				FAAEFFE61C15A60C001B3ED8 /* Cells */,
 				FA9314211BFB604100D3FE66 /* PalettesVC.swift */,
 			);
-			name = Palettes;
+			path = Palettes;
 			sourceTree = "<group>";
 		};
 		FA9314411BFB655A00D3FE66 /* Patterns */ = {
@@ -216,7 +216,7 @@
 				FAAEFFE71C15A611001B3ED8 /* Cells */,
 				FA9314381BFB616600D3FE66 /* PatternsVC.swift */,
 			);
-			name = Patterns;
+			path = Patterns;
 			sourceTree = "<group>";
 		};
 		FA9314421BFB656200D3FE66 /* Users */ = {
@@ -224,7 +224,7 @@
 			children = (
 				FA93143A1BFB617100D3FE66 /* UserDetailVC.swift */,
 			);
-			name = Users;
+			path = Users;
 			sourceTree = "<group>";
 		};
 		FA9314451BFB65D700D3FE66 /* Supporting Files */ = {
@@ -232,7 +232,7 @@
 			children = (
 				FA5CF57C1BFCAAB20002A12A /* bridge.h */,
 			);
-			name = "Supporting Files";
+			path = "Supporting Files";
 			sourceTree = "<group>";
 		};
 		FA9314511BFB6A8100D3FE66 /* Cells */ = {
@@ -268,7 +268,7 @@
 				FAAEFFEA1C15A69F001B3ED8 /* Palettes.storyboard */,
 				FAAEFFEC1C15A6A7001B3ED8 /* Patterns.storyboard */,
 			);
-			name = Storyboards;
+			path = Storyboards;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -531,13 +531,13 @@
 			baseConfigurationReference = 955ECBC20363CDB2C10292FF /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				INFOPLIST_FILE = ColourLoveSwift/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/ColourLoveSwift/Resources/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.alexiscreuzot.ColourLoveSwift;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_INSTALL_OBJC_HEADER = YES;
-				SWIFT_OBJC_BRIDGING_HEADER = ColourLoveSwift/bridge.h;
+				SWIFT_OBJC_BRIDGING_HEADER = "ColourLoveSwift/Supporting Files/bridge.h";
 			};
 			name = Debug;
 		};
@@ -546,13 +546,13 @@
 			baseConfigurationReference = 48C3E300992FAB6444B84A70 /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				INFOPLIST_FILE = ColourLoveSwift/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/ColourLoveSwift/Resources/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.alexiscreuzot.ColourLoveSwift;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_INSTALL_OBJC_HEADER = YES;
-				SWIFT_OBJC_BRIDGING_HEADER = ColourLoveSwift/bridge.h;
+				SWIFT_OBJC_BRIDGING_HEADER = "ColourLoveSwift/Supporting Files/bridge.h";
 			};
 			name = Release;
 		};
