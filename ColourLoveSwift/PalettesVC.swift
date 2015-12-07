@@ -16,10 +16,14 @@ class PalettesVC: UIViewController, UITableViewDataSource, UITableViewDelegate, 
     
     // MARK: - Lifecycle
     
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        self.title = "Palettes"
+    }
+    
     override func viewDidLoad()
     {
         super.viewDidLoad()
-        self.title = "Palettes"
     }
     
     override func viewWillAppear(animated: Bool)

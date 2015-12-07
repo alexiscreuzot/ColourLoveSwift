@@ -17,10 +17,15 @@ class ColorsVC: UIViewController, UITableViewDataSource, UITableViewDelegate, UI
 
     // MARK: - Lifecycle
     
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        self.title = "Colors"
+    }
+    
     override func viewDidLoad()
     {
         super.viewDidLoad()
-        self.title = "Colors"
+        
     }
     
     override func viewWillAppear(animated: Bool)

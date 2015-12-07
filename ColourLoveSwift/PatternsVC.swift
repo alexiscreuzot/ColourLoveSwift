@@ -16,10 +16,14 @@ class PatternsVC: UIViewController, UICollectionViewDataSource, UICollectionView
     
     // MARK: - Lifecycle
     
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        self.title = "Patterns"
+    }
+    
     override func viewDidLoad()
     {
         super.viewDidLoad()
-        self.title = "Patterns"        
     }
     
     override func viewWillAppear(animated: Bool)
