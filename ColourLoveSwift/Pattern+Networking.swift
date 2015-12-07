@@ -22,11 +22,15 @@ extension Pattern{
             }else{
                 if let JSON:Array = response.result.value as? Array<[String: AnyObject]> {
                     let realm = RLMRealm.defaultRealm()
-                    try! realm.transactionWithBlock {
-                        realm.deleteAllObjects()
-                        for dict in JSON{
-                            Pattern.createOrUpdateInDefaultRealmWithValue(dict)
+                    do{
+                        try realm.transactionWithBlock {
+                            realm.deleteObjects(Pattern.allObjects())
+                            for dict in JSON{
+                                Pattern.createOrUpdateInDefaultRealmWithValue(dict)
+                            }
                         }
+                    } catch let error as NSError {
+                        print(error)
                     }
                     completion(result:Pattern.allObjects().toArray(),error: response.result.error)
                 }else{

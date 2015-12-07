@@ -22,12 +22,18 @@ extension Color{
             }else{
                 if let JSON:Array = response.result.value as? Array<[String: AnyObject]> {
                     let realm = RLMRealm.defaultRealm()
-                    try! realm.transactionWithBlock {
-                        realm.deleteAllObjects()
-                        for dict in JSON{
-                            Color.createOrUpdateInDefaultRealmWithValue(dict)
+                    
+                    do{
+                          try realm.transactionWithBlock {
+                            realm.deleteObjects(Color.allObjects())
+                            for dict in JSON{
+                                Color.createOrUpdateInDefaultRealmWithValue(dict)
+                            }
                         }
+                    } catch let error as NSError {
+                        print(error)
                     }
+
                     completion(result:Color.allObjects().toArray(),error: response.result.error)
                 }else{
                     completion(result:nil,error: NSError(domain: "Data", code: 0, userInfo: [NSLocalizedDescriptionKey:"Parsing Error"]))

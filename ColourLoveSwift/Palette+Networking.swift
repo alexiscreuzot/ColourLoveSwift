@@ -22,11 +22,15 @@ extension Palette{
             }else{
                 if let JSON:Array = response.result.value as? Array<[String: AnyObject]> {
                     let realm = RLMRealm.defaultRealm()
-                    try! realm.transactionWithBlock {
-                        realm.deleteAllObjects()
-                        for dict in JSON{
-                            Palette.createOrUpdateInDefaultRealmWithValue(dict)
+                    do{
+                        try realm.transactionWithBlock {
+                            realm.deleteObjects(Palette.allObjects())
+                            for dict in JSON{
+                                Palette.createOrUpdateInDefaultRealmWithValue(dict)
+                            }
                         }
+                    } catch let error as NSError {
+                        print(error)
                     }
                     completion(result:Palette.allObjects().toArray(),error: response.result.error)
                 }else{
