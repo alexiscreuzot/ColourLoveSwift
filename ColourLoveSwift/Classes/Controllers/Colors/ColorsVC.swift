@@ -13,19 +13,12 @@ class ColorsVC: UIViewController, UITableViewDataSource, UITableViewDelegate, UI
     
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var searchBar: UISearchBar!
-    
 
     // MARK: - Lifecycle
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         self.title = "Colors"
-    }
-    
-    override func viewDidLoad()
-    {
-        super.viewDidLoad()
-        
     }
     
     override func viewWillAppear(animated: Bool)
@@ -72,27 +65,30 @@ class ColorsVC: UIViewController, UITableViewDataSource, UITableViewDelegate, UI
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell
     {
-        let color:Color = Color.allObjects()[UInt(indexPath.row)] as! Color
+        let color = Color.allObjects()[UInt(indexPath.row)] as! Color
         
-        let cell = tableView.dequeueReusableCellWithIdentifier(ColorCell.className(), forIndexPath: indexPath)
-        (cell as! ColorCell).setColor(color)
+        let cell:ColorCell = tableView.dequeueReusableCellWithIdentifier(ColorCell.className(), forIndexPath: indexPath) as! ColorCell
+        cell.setColor(color)
         return cell;
     }
     
     // MARK: - TableView Delegate
     
-    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat
+    {
         return ColorCell.height()
     }
     
     // MARK: - SearchBar Delegate
     
-    func searchBarSearchButtonClicked(searchBar: UISearchBar) {
+    func searchBarSearchButtonClicked(searchBar: UISearchBar)
+    {
         self.requestColors()
         self.searchBar.resignFirstResponder()
     }
     
-    func searchBarCancelButtonClicked(searchBar: UISearchBar) {
+    func searchBarCancelButtonClicked(searchBar: UISearchBar)
+    {
         self.searchBar.resignFirstResponder()
     }
 }

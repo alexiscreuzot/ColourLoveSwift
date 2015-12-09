@@ -16,14 +16,10 @@ class PatternsVC: UIViewController, UICollectionViewDataSource, UICollectionView
     
     // MARK: - Lifecycle
     
-    required init?(coder aDecoder: NSCoder) {
+    required init?(coder aDecoder: NSCoder)
+    {
         super.init(coder: aDecoder)
         self.title = "Patterns"
-    }
-    
-    override func viewDidLoad()
-    {
-        super.viewDidLoad()
     }
     
     override func viewWillAppear(animated: Bool)
@@ -35,12 +31,6 @@ class PatternsVC: UIViewController, UICollectionViewDataSource, UICollectionView
         if (Pattern.allObjects().count == 0) {
             self.requestPatterns()
         }
-    }
-    
-    override func viewDidAppear(animated: Bool)
-    {
-        super.viewDidAppear(animated)
-        
     }
     
     // MARK: - Network
@@ -66,27 +56,29 @@ class PatternsVC: UIViewController, UICollectionViewDataSource, UICollectionView
     }
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-        let pattern:Pattern = Pattern.allObjects()[UInt(indexPath.row)] as! Pattern
-        
-        let cell = collectionView.dequeueReusableCellWithReuseIdentifier(PatternCell.className(), forIndexPath: indexPath)
-        (cell as! PatternCell).setPattern(pattern)
+        let pattern = Pattern.allObjects()[UInt(indexPath.row)] as! Pattern
+        let cell = collectionView.dequeueReusableCellWithReuseIdentifier(PatternCell.className(), forIndexPath: indexPath) as! PatternCell
+        cell.setPattern(pattern)
         return cell;
     }
     
     // MARK: - CollectionView layout Delegate
     
-    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
+    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize
+    {
         return PatternCell.size();
     }
    
     // MARK: - SearchBar Delegate
     
-    func searchBarSearchButtonClicked(searchBar: UISearchBar) {
+    func searchBarSearchButtonClicked(searchBar: UISearchBar)
+    {
         self.requestPatterns()
         self.searchBar.resignFirstResponder()
     }
     
-    func searchBarCancelButtonClicked(searchBar: UISearchBar) {
+    func searchBarCancelButtonClicked(searchBar: UISearchBar)
+    {
         self.searchBar.resignFirstResponder()
     }
 }

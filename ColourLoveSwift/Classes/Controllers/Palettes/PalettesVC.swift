@@ -16,14 +16,10 @@ class PalettesVC: UIViewController, UITableViewDataSource, UITableViewDelegate, 
     
     // MARK: - Lifecycle
     
-    required init?(coder aDecoder: NSCoder) {
+    required init?(coder aDecoder: NSCoder)
+    {
         super.init(coder: aDecoder)
         self.title = "Palettes"
-    }
-    
-    override func viewDidLoad()
-    {
-        super.viewDidLoad()
     }
     
     override func viewWillAppear(animated: Bool)
@@ -70,32 +66,35 @@ class PalettesVC: UIViewController, UITableViewDataSource, UITableViewDelegate, 
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell
     {
-        let palette:Palette = Palette.allObjects()[UInt(indexPath.row)] as! Palette
-        
-        let cell = tableView.dequeueReusableCellWithIdentifier(PaletteCell.className(), forIndexPath: indexPath)
-        (cell as! PaletteCell).setPalette(palette)
+        let palette = Palette.allObjects()[UInt(indexPath.row)] as! Palette
+        let cell = tableView.dequeueReusableCellWithIdentifier(PaletteCell.className(), forIndexPath: indexPath) as! PaletteCell
+        cell.setPalette(palette)
         return cell;
     }
     
     // MARK: - TableView Delegate
     
-    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat
+    {
         return PaletteCell.height()
     }
     
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        let cell: PaletteCell = self.tableView.cellForRowAtIndexPath(indexPath) as! PaletteCell
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath)
+    {
+        let cell = self.tableView.cellForRowAtIndexPath(indexPath) as! PaletteCell
         cell.toggleSelectedAnimated(true)
     }
     
     // MARK: - SearchBar Delegate
     
-    func searchBarSearchButtonClicked(searchBar: UISearchBar) {
+    func searchBarSearchButtonClicked(searchBar: UISearchBar)
+    {
         self.requestPalettes()
         self.searchBar.resignFirstResponder()
     }
     
-    func searchBarCancelButtonClicked(searchBar: UISearchBar) {
+    func searchBarCancelButtonClicked(searchBar: UISearchBar)
+    {
         self.searchBar.resignFirstResponder()
     }
 }
