@@ -21,13 +21,14 @@ extension Color{
                 completion(result:nil, error: response.result.error)
             }else{
                 if let JSON:Array = response.result.value as? Array<[String: AnyObject]> {
-                    let realm = RLMRealm.defaultRealm()
                     
+                    let realm = RLMRealm.defaultRealm()
                     do{
                           try realm.transactionWithBlock {
                             realm.deleteObjects(Color.allObjects())
                             for dict in JSON{
-                                Color.createOrUpdateInDefaultRealmWithValue(dict)
+                                let col = Color.mappedColor(dict)
+                                realm.addOrUpdateObject(col)
                             }
                         }
                     } catch let error as NSError {

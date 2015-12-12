@@ -26,7 +26,8 @@ extension Palette{
                         try realm.transactionWithBlock {
                             realm.deleteObjects(Palette.allObjects())
                             for dict in JSON{
-                                Palette.createOrUpdateInDefaultRealmWithValue(dict)
+                                let col = Palette.mappedPalette(dict)
+                                realm.addOrUpdateObject(col)
                             }
                         }
                     } catch let error as NSError {

@@ -8,6 +8,7 @@
 
 import Foundation
 import Realm
+import ObjectMapper
 
 extension RLMResults {
     func toArray () -> [RLMObject] {

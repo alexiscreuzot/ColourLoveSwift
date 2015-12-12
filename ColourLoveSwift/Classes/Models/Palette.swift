@@ -5,9 +5,9 @@
 //  Created by Alexis Creuzot on 17/11/2015.
 //  Copyright © 2015 alexiscreuzot. All rights reserved.
 //
+import ObjectMapper
 
-
-class Palette: RLMObject {
+class Palette: RLMObject, Mappable {
     dynamic var id = 0
     dynamic var title = ""
     dynamic var username = ""
@@ -20,4 +20,21 @@ class Palette: RLMObject {
         return "id"
     }
     
+    // PRAGMA - ObjectMapper
+    
+    required convenience init?(_ map: Map) {
+        self.init()
+    }
+    
+    static func mappedPalette(dict:Dictionary<String, AnyObject>) -> Palette{
+        return Mapper<Palette>().map(dict)! as Palette
+    }
+    
+    func mapping(map: Map) {
+        id <- map["id"]
+        title <- map["title"]
+        username <- map["userName"]
+        imageUrl <- map["imageUrl"]
+    }
+        
 }

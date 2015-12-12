@@ -26,7 +26,8 @@ extension Pattern{
                         try realm.transactionWithBlock {
                             realm.deleteObjects(Pattern.allObjects())
                             for dict in JSON{
-                                Pattern.createOrUpdateInDefaultRealmWithValue(dict)
+                                let col = Pattern.mappedPattern(dict)
+                                realm.addOrUpdateObject(col)
                             }
                         }
                     } catch let error as NSError {
