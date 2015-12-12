@@ -16,5 +16,8 @@ enum StoryboardType : String {
 
 extension UIStoryboard {
     
+    convenience init(type : StoryboardType) {
+        self.init(name: type.rawValue, bundle: nil)
+    }
     
 }
