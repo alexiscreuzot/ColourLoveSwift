@@ -1,5 +1,13 @@
 PODS:
   - Alamofire (3.1.3)
+  - CocoaLumberjack (2.2.0):
+    - CocoaLumberjack/Default (= 2.2.0)
+    - CocoaLumberjack/Extensions (= 2.2.0)
+  - CocoaLumberjack/Core (2.2.0)
+  - CocoaLumberjack/Default (2.2.0):
+    - CocoaLumberjack/Core
+  - CocoaLumberjack/Extensions (2.2.0):
+    - CocoaLumberjack/Default
   - ObjectMapper (1.0.1)
   - Realm (0.96.3):
     - Realm/Headers (= 0.96.3)
@@ -13,6 +21,7 @@ PODS:
 
 DEPENDENCIES:
   - Alamofire (~> 3.0)
+  - CocoaLumberjack (~> 2.2)
   - ObjectMapper (~> 1.0)
   - RealmSwift (~> 0.96)
   - SDWebImage (~> 3.7)
@@ -20,6 +29,7 @@ DEPENDENCIES:
 
 SPEC CHECKSUMS:
   Alamofire: 9f93b56389e48def9220dd57d1f44b1927229a5a
+  CocoaLumberjack: 17fe8581f84914d5d7e6360f7c70022b173c3ae0
   ObjectMapper: 98524bac0dca46c6b3d5ee02cd410fc700ec6ce2
   Realm: 145d3cdf78a03aee71bde5381ad7e542bd541720
   RealmSwift: aab84968aad662f61f36473d1aea019f63481505
