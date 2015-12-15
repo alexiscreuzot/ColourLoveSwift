@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CocoaLumberjack
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -15,7 +16,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-        // Override point for customization after application launch.
+        
+        let ttyLogger = DDTTYLogger.sharedInstance()
+        ttyLogger.colorsEnabled = true
+        ttyLogger.setForegroundColor(UIColor.orangeColor(), backgroundColor: nil, forFlag: .Warning)
+        ttyLogger.setForegroundColor(UIColor.redColor(), backgroundColor: nil, forFlag: .Error)
+        ttyLogger.setForegroundColor(UIColor.cyanColor(), backgroundColor: nil, forFlag: .Info)
+        ttyLogger.setForegroundColor(UIColor.greenColor(), backgroundColor: nil, forFlag: .Debug)
+        ttyLogger.setForegroundColor(UIColor.magentaColor(), backgroundColor: nil, forFlag: .Verbose)
+        DDLog.addLogger(ttyLogger)
+        
         return true
     }
 

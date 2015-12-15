@@ -8,6 +8,7 @@
 
 import Foundation
 import Alamofire
+import CocoaLumberjack
 
 extension Palette{
     
@@ -15,7 +16,7 @@ extension Palette{
     {
         let parameters:Dictionary = ["format":"json", "keywords" : keywords]
         Alamofire.request(.GET, Constants.API.palettesURL, parameters:parameters).responseJSON { response in
-            print(response.response) // URL response
+            DDLogInfo(response.response!.description)
             
             if((response.result.error) != nil){
                 completion(result:nil, error: response.result.error)

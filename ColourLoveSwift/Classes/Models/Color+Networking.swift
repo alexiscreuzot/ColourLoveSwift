@@ -8,6 +8,7 @@
 
 import Foundation
 import Alamofire
+import CocoaLumberjack
 
 extension Color{
     
@@ -15,7 +16,7 @@ extension Color{
     {
         let parameters:Dictionary = ["format":"json", "keywords" : keywords]
         Alamofire.request(.GET, Constants.API.colorsURL, parameters:parameters).responseJSON { response in
-            print(response.response) // URL response
+            DDLogInfo(response.response!.description) // URL response
             
             if((response.result.error) != nil){
                 completion(result:nil, error: response.result.error)
