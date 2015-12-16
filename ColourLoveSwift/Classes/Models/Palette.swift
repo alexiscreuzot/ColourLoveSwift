@@ -11,7 +11,7 @@ class Palette: RLMObject, Mappable {
     dynamic var id = 0
     dynamic var title = ""
     dynamic var username = ""
-    dynamic var imageUrl = ""
+    dynamic var imageUrlString = ""
     
     dynamic var selected:Bool = false
     
@@ -30,11 +30,15 @@ class Palette: RLMObject, Mappable {
         return Mapper<Palette>().map(dict)! as Palette
     }
     
+    func imageURL() -> NSURL{
+        return NSURL(string: self.imageUrlString)!
+    }
+    
     func mapping(map: Map) {
         id <- map["id"]
         title <- map["title"]
         username <- map["userName"]
-        imageUrl <- map["imageUrl"]
+        imageUrlString <- map["imageUrl"]
     }
         
 }

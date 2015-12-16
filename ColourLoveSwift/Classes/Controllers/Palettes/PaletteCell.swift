@@ -27,7 +27,7 @@ class PaletteCell: UITableViewCell {
         self.palette = palette
         self.titleLabel?.text = palette.title.capitalizedString;
         self.subtitleLabel?.text = palette.username;
-        self.paletteImageView?.sd_setImageWithURL(NSURL(string: palette.imageUrl))
+        self.paletteImageView?.sd_setImageWithURL(palette.imageURL())
         
         self.setPaletteDisplayed(palette.selected, animated: false)
     }

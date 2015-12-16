@@ -26,7 +26,7 @@ class PatternCell: UICollectionViewCell {
     func setPattern(pattern:Pattern)
     {
         self.pattern = pattern
-        self.patternImageView?.sd_setImageWithURL(NSURL(string:pattern.imageUrl))
+        self.patternImageView?.sd_setImageWithURL(pattern.imageURL())
     }
     
 }
