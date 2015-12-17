@@ -30,8 +30,8 @@ class Palette: RLMObject, Mappable {
         return Mapper<Palette>().map(dict)! as Palette
     }
     
-    func imageURL() -> NSURL{
-        return NSURL(string: self.imageUrlString)!
+    func imageURL() -> NSURL?{
+        return NSURL(string: self.imageUrlString)
     }
     
     func mapping(map: Map) {

@@ -29,8 +29,8 @@ class Pattern: RLMObject, Mappable {
         return Mapper<Pattern>().map(dict)! as Pattern
     }
     
-    func imageURL() -> NSURL{
-        return NSURL(string: self.imageUrlString)!
+    func imageURL() -> NSURL?{
+        return NSURL(string: self.imageUrlString)
     }
     
     func mapping(map: Map) {
