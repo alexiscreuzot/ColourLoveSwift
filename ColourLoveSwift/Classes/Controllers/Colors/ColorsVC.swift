@@ -48,7 +48,7 @@ class ColorsVC: UIViewController, UITableViewDataSource, UITableViewDelegate, UI
         SVProgressHUD.show()
         Color.fetch(self.searchBar.text!) { (result,error) -> Void in
             if(error != nil){
-                SVProgressHUD.showErrorWithStatus(error?.localizedDescription)
+                SVProgressHUD.showErrorWithStatus(error!.localizedDescription)
             }else{
                 self.tableView.reloadData()
                 SVProgressHUD.showSuccessWithStatus("Done")
