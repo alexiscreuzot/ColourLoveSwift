@@ -17,21 +17,3 @@ public struct Constants {
         static let patternsURL = baseURL+"/patterns"
     }
 }
-
-//extension URLRequestConvertible{
-//    
-//    public func request(
-//        method: Alamofire.Method,
-//        endpoint: Constants.API,
-//        parameters: [String: AnyObject]? = nil)
-//        -> Request
-//    {
-//        return Manager.sharedInstance.request(
-//            method,
-//            endpoint,
-//            parameters: parameters,
-//            encoding: .URL,
-//            headers: nil
-//        )
-//    }
-//}
