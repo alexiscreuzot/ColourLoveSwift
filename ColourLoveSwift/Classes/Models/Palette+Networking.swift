@@ -14,7 +14,7 @@ extension Palette {
 
     static func fetch(keywords: String, completion:(result: [RLMObject]?, error: NSError?) -> Void) {
 
-        API.request(.GET, endpoint: API.Palettes, parameters: ["keywords" : keywords]) { response in
+        API.request(.GET, endpoint: .Palettes(keywords)) { response in
             DDLogInfo(response.response!.description)
 
             if (response.result.error) != nil {

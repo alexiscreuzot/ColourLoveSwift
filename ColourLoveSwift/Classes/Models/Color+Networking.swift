@@ -14,7 +14,7 @@ extension Color {
 
     static func fetch(keywords: String, completion:(result: [RLMObject]?, error: NSError?) -> Void) {
 
-        API.request(.GET, endpoint: API.Colors, parameters: ["keywords" : keywords]) { response in
+        API.request(.GET, endpoint: .Colors(keywords)) { response in
 
             if (response.result.error) != nil {
                 completion(result:nil, error: response.result.error)

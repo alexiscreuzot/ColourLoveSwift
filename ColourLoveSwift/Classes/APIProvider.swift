@@ -10,62 +10,69 @@ import Foundation
 import CocoaLumberjack
 import Alamofire
 
+public struct API {
 
-public enum API {
-    case Colors
-    case Palettes
-    case Patterns
-}
+    public enum Endpoints {
 
-extension API {
+        case Colors(String)
+        case Palettes(String)
+        case Patterns(String)
 
-    public var baseURL: String {
-        return "http://colourlovers.com/api"
-    }
+        public var baseURL: String {
+            return "http://colourlovers.com/api"
+        }
 
-    public var path: String {
-        switch self {
-        case .Colors:
-            return baseURL+"/colors"
-        case .Palettes:
-            return baseURL+"/palettes"
-        case .Patterns:
-            return baseURL+"/patterns"
+        public var path: String {
+            switch self {
+            case .Colors:
+                return baseURL+"/colors"
+            case .Palettes:
+                return baseURL+"/palettes"
+            case .Patterns:
+                return baseURL+"/patterns"
+            }
+        }
+
+        public var parameters: [String : AnyObject] {
+            var parameters = ["format":"json"]
+            switch self {
+            case .Colors(let keywords):
+                parameters["keywords"] = keywords
+                break
+            case .Palettes(let keywords):
+                parameters["keywords"] = keywords
+                break
+            case .Patterns(let keywords):
+                parameters["keywords"] = keywords
+                break
+            }
+            return parameters
         }
     }
 
     public static func request(
         method: Alamofire.Method,
-        endpoint: API,
-        var parameters: [String: AnyObject]?,
+        endpoint: API.Endpoints,
         completionHandler: Response<AnyObject, NSError> -> Void)
         -> Request {
 
-        // endpoint
-        DDLogInfo("----> " + endpoint.path)
+            let request =  Manager.sharedInstance.request(
+                method,
+                endpoint.path,
+                parameters: endpoint.parameters,
+                encoding: .URL,
+                headers: nil
+                ).responseJSON { response in
 
-        // Parameters
-        if parameters!["format"] == nil {
-            parameters!["format"] = "json"
-        }
-
-        let request =  Manager.sharedInstance.request(
-            method,
-            endpoint.path,
-            parameters: parameters,
-            encoding: .URL,
-            headers: nil
-        ).responseJSON { response in
-
-            if (response.result.error) != nil {
-                DDLogError(response.result.error!.description)
-                completionHandler(response)
-            } else {
-                DDLogInfo(response.response!.description)
-                completionHandler(response)
+                    if (response.result.error) != nil {
+                        DDLogError("\n<----\n" + response.result.error!.description)
+                        completionHandler(response)
+                    } else {
+                        DDLogInfo("\n<----\n" + response.response!.description)
+                        completionHandler(response)
+                    }
             }
-        }
-
-        return request
+            DDLogInfo("\n---->\n" + request.description)
+            return request
     }
 }
