@@ -13,34 +13,31 @@ import CocoaLumberjack
 extension Color {
 
     static func fetch(keywords: String, completion:(result: [RLMObject]?, error: NSError?) -> Void) {
-        ColourLoversProvider.cl_request(.Colors(keywords), completion: { result in
-            switch result {
-            case .Success(let response):
-                do {
-                    let json = try response.mapJSON() as? NSArray
-                    Color.parseColorsJSON(json as! Array<[String : AnyObject]>)
-                    completion(result:Color.allObjects().toArray(), error: nil)
-                } catch {
+
+        API.request(.GET, endpoint: API.Colors, parameters: ["keywords" : keywords]) { response in
+
+            if (response.result.error) != nil {
+                completion(result:nil, error: response.result.error)
+            } else {
+                if let JSON: Array = response.result.value as? Array<[String: AnyObject]> {
+                    let realm = RLMRealm.defaultRealm()
+                    do {
+                        try realm.transactionWithBlock {
+                            realm.deleteObjects(Color.allObjects())
+                            for dict in JSON {
+                                let col = Color.mappedColor(dict)
+                                realm.addOrUpdateObject(col)
+                            }
+                        }
+                    } catch let error as NSError {
+                        print(error)
+                    }
+                    completion(result:Color.allObjects().toArray(), error: response.result.error)
+                } else {
                     completion(result:nil, error: NSError(domain: "Data", code: 0, userInfo: [NSLocalizedDescriptionKey:"Parsing Error"]))
                 }
-            case  .Failure(_):
-                completion(result:nil, error: NSError(domain: "Network", code: 0, userInfo: [NSLocalizedDescriptionKey:"Network Error"]))
             }
-        })
-    }
-
-    static func parseColorsJSON(json: Array<[String: AnyObject]>) {
-        let realm = RLMRealm.defaultRealm()
-        do {
-            try realm.transactionWithBlock {
-                realm.deleteObjects(Color.allObjects())
-                for dict in json {
-                    let col = Color.mappedColor(dict)
-                    realm.addOrUpdateObject(col)
-                }
-            }
-        } catch let error as NSError {
-            print(error)
         }
+
     }
 }

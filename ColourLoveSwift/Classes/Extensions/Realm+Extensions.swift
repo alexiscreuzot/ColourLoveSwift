@@ -13,7 +13,7 @@ import ObjectMapper
 extension RLMResults {
     func toArray () -> [RLMObject] {
         var array = [RLMObject]()
-        for i in 0...self.count {
+        for i in 0...self.count-1 {
             array.append(self.objectAtIndex(i))
         }
         return array

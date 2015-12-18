@@ -13,8 +13,8 @@ import CocoaLumberjack
 extension Palette {
 
     static func fetch(keywords: String, completion:(result: [RLMObject]?, error: NSError?) -> Void) {
-        let parameters: Dictionary = ["format":"json", "keywords" : keywords]
-        Alamofire.request(.GET, Constants.API.palettesURL, parameters:parameters).responseJSON { response in
+
+        API.request(.GET, endpoint: API.Palettes, parameters: ["keywords" : keywords]) { response in
             DDLogInfo(response.response!.description)
 
             if (response.result.error) != nil {
@@ -39,5 +39,6 @@ extension Palette {
                 }
             }
         }
+
     }
 }

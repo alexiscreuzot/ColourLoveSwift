@@ -197,8 +197,8 @@
 		FA93143F1BFB655000D3FE66 /* Colors */ = {
 			isa = PBXGroup;
 			children = (
-				FA9314511BFB6A8100D3FE66 /* Cells */,
 				FA93141F1BFB604100D3FE66 /* ColorsVC.swift */,
+				FA9314511BFB6A8100D3FE66 /* Cells */,
 				FA9314361BFB614300D3FE66 /* ColorDetailVC.swift */,
 			);
 			path = Colors;
