@@ -15,12 +15,12 @@ import CocoaLumberjack
 let ColourLoversProvider = MoyaProvider<ColourLovers>()
 
 extension MoyaProvider {
-    
+
     public func cl_request(target: Target, completion: Moya.Completion) -> Cancellable {
         DDLogInfo((target as! ColourLovers).description)
         return request(target, completion: completion)
     }
-    
+
 }
 
 // MARK: - Provider support
@@ -45,18 +45,18 @@ extension ColourLovers: TargetType {
     public var baseURL: NSURL {
         return NSURL(string: "http://www.colourlovers.com/api")!
     }
-    
-    public var description: String{
-        
+
+    public var description: String {
+
         var desc = "\n----------->"
         desc    += "\nURL:"+self.baseURL.absoluteString+self.path
-        if(self.parameters != nil){
+        if self.parameters != nil {
             desc    += "\nParameters:"+(self.parameters!.description)
         }
-        
+
         return desc
     }
-    
+
     public var path: String {
         switch self {
         case .Colors(_):
@@ -67,11 +67,11 @@ extension ColourLovers: TargetType {
             return "/patterns"
         }
     }
-    
+
     public var method: Moya.Method {
         return .GET
     }
-    
+
     public var parameters: [String: AnyObject]? {
         var parameters = ["format" : "json"]
         switch self {
@@ -87,7 +87,7 @@ extension ColourLovers: TargetType {
         }
         return parameters
     }
-    
+
     public var sampleData: NSData {
         switch self {
         case .Colors:
@@ -99,5 +99,3 @@ extension ColourLovers: TargetType {
         }
     }
 }
-
-

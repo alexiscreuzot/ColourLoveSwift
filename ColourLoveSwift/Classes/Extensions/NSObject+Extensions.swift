@@ -9,9 +9,8 @@
 import Foundation
 
 extension NSObject {
-    
+
     class func className() -> String {
         return NSStringFromClass(self).componentsSeparatedByString(".").last!
     }
-    
 }

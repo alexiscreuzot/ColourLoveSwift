@@ -14,24 +14,22 @@ class PaletteCell: UITableViewCell {
     @IBOutlet weak var subtitleLabel: UILabel?
     @IBOutlet weak var paletteImageView: UIImageView?
     @IBOutlet weak var paletteImageWidthConstraint: NSLayoutConstraint?
-    
-    private var palette:Palette?;
-    
-    class func height() -> CGFloat
-    {
+
+    private var palette: Palette?
+
+    class func height() -> CGFloat {
         return 70.0
     }
-    
-    func setPalette(palette:Palette)
-    {
+
+    func setPalette(palette: Palette) {
         self.palette = palette
-        self.titleLabel?.text = palette.title.capitalizedString;
-        self.subtitleLabel?.text = palette.username;
+        self.titleLabel?.text = palette.title.capitalizedString
+        self.subtitleLabel?.text = palette.username
         self.paletteImageView?.sd_setImageWithURL(palette.imageURL())
-        
+
         self.setPaletteDisplayed(palette.selected, animated: false)
     }
-    
+
     func setPaletteDisplayed(displayed: Bool, animated: Bool) {
         let duration: Double = (animated) ? 0.3 : 0
         UIView.animateWithDuration(duration, animations: {() -> Void in
@@ -39,14 +37,18 @@ class PaletteCell: UITableViewCell {
             self.layoutIfNeeded()
         })
     }
-    
+
     func toggleSelectedAnimated(animated: Bool) {
         let realm = RLMRealm.defaultRealm()
-        try! realm.transactionWithBlock {
-             self.palette!.selected = !self.palette!.selected
+        do {
+            try realm.transactionWithBlock {
+                self.palette!.selected = !self.palette!.selected
+            }
+        } catch {
+            print("Realm write error")
         }
-       
+
         self.setPaletteDisplayed(self.palette!.selected, animated: true)
     }
-    
+
 }

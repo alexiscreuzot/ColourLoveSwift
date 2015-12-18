@@ -10,75 +10,69 @@ import UIKit
 import SVProgressHUD
 
 class PatternsVC: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, UISearchBarDelegate {
-    
+
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var searchBar: UISearchBar!
-    
+
     // MARK: - Lifecycle
-    
-    required init?(coder aDecoder: NSCoder)
-    {
+
+    required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         self.title = "Patterns"
     }
-    
-    override func viewWillAppear(animated: Bool)
-    {
+
+    override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        
+
         // We check the database, and proceed to do a web request
         // if the database doesn't return any results
-        if (Pattern.allObjects().count == 0) {
+        if Pattern.allObjects().count == 0 {
             self.requestPatterns()
         }
     }
-    
+
     // MARK: - Network
-    
-    func requestPatterns()
-    {
+
+    func requestPatterns() {
         SVProgressHUD.show()
-        Pattern.fetch(self.searchBar.text!) { (result,error) -> Void in
-            if(error != nil){
+        Pattern.fetch(self.searchBar.text!) { (result, error) -> Void in
+            if error != nil {
                 SVProgressHUD.showErrorWithStatus(error?.localizedDescription)
-            }else{
+            } else {
                 self.collectionView.reloadData()
                 SVProgressHUD.showSuccessWithStatus("Done")
             }
         }
     }
-    
+
     // MARK: - CollectionView Datasource
-    
-    
+
+
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return Int(Pattern.allObjects().count);
+        return Int(Pattern.allObjects().count)
     }
-    
+
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         let pattern = Pattern.allObjects()[UInt(indexPath.row)] as! Pattern
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier(PatternCell.className(), forIndexPath: indexPath) as! PatternCell
         cell.setPattern(pattern)
-        return cell;
+        return cell
     }
-    
+
     // MARK: - CollectionView layout Delegate
-    
-    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize
-    {
-        return PatternCell.size();
+
+    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
+        return PatternCell.size()
     }
-   
+
     // MARK: - SearchBar Delegate
-    
-    func searchBarSearchButtonClicked(searchBar: UISearchBar)
-    {
+
+    func searchBarSearchButtonClicked(searchBar: UISearchBar) {
         self.requestPatterns()
         self.searchBar.resignFirstResponder()
     }
-    
-    func searchBarCancelButtonClicked(searchBar: UISearchBar)
-    {
+
+    func searchBarCancelButtonClicked(searchBar: UISearchBar) {
         self.searchBar.resignFirstResponder()
     }
 }

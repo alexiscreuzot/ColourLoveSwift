@@ -10,17 +10,16 @@ import Foundation
 import Alamofire
 import CocoaLumberjack
 
-extension Color{
-    
-    static func fetch(keywords: String, completion:(result: [RLMObject]?,error: NSError?) -> Void)
-    {
+extension Color {
+
+    static func fetch(keywords: String, completion:(result: [RLMObject]?, error: NSError?) -> Void) {
         ColourLoversProvider.cl_request(.Colors(keywords), completion: { result in
             switch result {
             case .Success(let response):
                 do {
                     let json = try response.mapJSON() as? NSArray
                     Color.parseColorsJSON(json as! Array<[String : AnyObject]>)
-                    completion(result:Color.allObjects().toArray(),error: nil)
+                    completion(result:Color.allObjects().toArray(), error: nil)
                 } catch {
                     completion(result:nil, error: NSError(domain: "Data", code: 0, userInfo: [NSLocalizedDescriptionKey:"Parsing Error"]))
                 }
@@ -29,13 +28,13 @@ extension Color{
             }
         })
     }
-    
-    static func parseColorsJSON(json : Array<[String: AnyObject]>){
+
+    static func parseColorsJSON(json: Array<[String: AnyObject]>) {
         let realm = RLMRealm.defaultRealm()
-        do{
+        do {
             try realm.transactionWithBlock {
                 realm.deleteObjects(Color.allObjects())
-                for dict in json{
+                for dict in json {
                     let col = Color.mappedColor(dict)
                     realm.addOrUpdateObject(col)
                 }

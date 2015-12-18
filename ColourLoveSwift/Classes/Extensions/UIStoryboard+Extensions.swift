@@ -8,16 +8,16 @@
 
 import Foundation
 
-enum StoryboardType : String {
+enum StoryboardType: String {
     case Colors
     case Palettes
     case Patterns
 }
 
 extension UIStoryboard {
-    
-    convenience init(type : StoryboardType) {
+
+    convenience init(type: StoryboardType) {
         self.init(name: type.rawValue, bundle: nil)
     }
-    
+
 }

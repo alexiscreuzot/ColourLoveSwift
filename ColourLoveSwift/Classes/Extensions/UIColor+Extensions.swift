@@ -7,7 +7,7 @@
 //
 
 extension UIColor {
-    
+
     convenience init(hex: String) {
         let hex = hex.stringByTrimmingCharactersInSet(NSCharacterSet.alphanumericCharacterSet().invertedSet)
         var int = UInt32()
@@ -27,28 +27,27 @@ extension UIColor {
     }
 
     func inverseColor() -> UIColor {
-        var r:CGFloat = 0.0; var g:CGFloat = 0.0; var b:CGFloat = 0.0; var a:CGFloat = 0.0;
+        var r: CGFloat = 0.0
+        var g: CGFloat = 0.0
+        var b: CGFloat = 0.0
+        var a: CGFloat = 0.0
         if self.getRed(&r, green: &g, blue: &b, alpha: &a) {
             return UIColor(red: 1.0-r, green: 1.0 - g, blue: 1.0 - b, alpha: a)
         }
         return self
     }
-    
+
     func contrastColor() -> UIColor {
         let components = CGColorGetComponents(self.CGColor)
         let rBright = components[0] * 299
         let gBright = components[1] * 587
         let bBright = components[2] * 114
         let brightness = (rBright + gBright + bBright) / 1000
-        
-        if brightness < 0.5
-        {
+
+        if brightness < 0.5 {
             return UIColor.whiteColor()
-        }
-        else
-        {
+        } else {
             return UIColor.blackColor()
         }
     }
-    
 }

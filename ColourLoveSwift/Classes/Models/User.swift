@@ -7,7 +7,7 @@
 //
 
 
-class User: RLMObject{
+class User: RLMObject {
     dynamic var username = ""
     dynamic var location = ""
     dynamic var rating = 0
