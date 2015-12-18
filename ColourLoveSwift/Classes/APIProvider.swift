@@ -22,11 +22,9 @@ public class API {
 
         public var method: Alamofire.Method {
             switch self {
-            case .Colors:
-                return Alamofire.Method.GET
-            case .Palettes:
-                return Alamofire.Method.GET
-            case .Patterns:
+            case .Colors,
+                 .Palettes,
+                 .Patterns:
                 return Alamofire.Method.GET
             }
         }
