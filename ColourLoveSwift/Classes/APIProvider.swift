@@ -10,7 +10,9 @@ import Foundation
 import CocoaLumberjack
 import Alamofire
 
-public struct API {
+public class API {
+
+    public static let baseURL: String = "http://colourlovers.com/api"
 
     public enum Endpoints {
 
@@ -18,8 +20,15 @@ public struct API {
         case Palettes(String)
         case Patterns(String)
 
-        public var baseURL: String {
-            return "http://colourlovers.com/api"
+        public var method: Alamofire.Method {
+            switch self {
+            case .Colors:
+                return Alamofire.Method.GET
+            case .Palettes:
+                return Alamofire.Method.GET
+            case .Patterns:
+                return Alamofire.Method.GET
+            }
         }
 
         public var path: String {
@@ -51,13 +60,12 @@ public struct API {
     }
 
     public static func request(
-        method: Alamofire.Method,
         endpoint: API.Endpoints,
         completionHandler: Response<AnyObject, NSError> -> Void)
         -> Request {
 
             let request =  Manager.sharedInstance.request(
-                method,
+                endpoint.method,
                 endpoint.path,
                 parameters: endpoint.parameters,
                 encoding: .URL,
