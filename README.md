@@ -3,18 +3,18 @@
 
 This project only purpose is to provide brief, clean and readable code in a dummy application. 
 It is heavily library based and MVC oriented and shows mecanisms like downloading, storing and displaying data from a webservice.
-All data is handled with the [Realm library](http://realm.io/), using the Active Record Pattern for cleaner code while still providing excellent performances.
+Local data is handled with the [Realm library](http://realm.io/).
 
-You are of course invited to use, fork and improve this project using your own knowledge. I'll try to update the code with up to date libraries and cconventions.
+You are of course invited to use, fork and improve this project using your own knowledge. I'll try to update the code with up to date libraries and conventions.
 
 ## Philosophy
 
 KISS : Kepp It Simple Stupid
 
-#### Classes
+### Classes
 
-- ViewControllers are suffixed by 'VC'
-- Models should be self-explanatory and match the server model (if any)
+- ViewControllers are suffixed by 'VC' 
+- Models should be self-explanatory and match the server model (if possible)
 - Custom views should indicate the superclass type (like `ColorCell` which extends `UITableViewCell`)
 
 ## How to install
@@ -48,3 +48,7 @@ fi
 ## Swiftlint
 
 [Swiftlint](https://github.com/realm/SwiftLint) is a great way to ensure the codebase stay clean and hopefully readable. You can tweak the rules in the `.swiftlint.yml` file 
+
+## Screenshots
+
+![screenshots](http://i.imgur.com/hsT2Fs4.png)
