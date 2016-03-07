@@ -1,5 +1,5 @@
 # ColourLoveSwift
-## (A Swift equivalent of [ColourLove](https://github.com/kirualex/ColourLove))
+### (A Swift equivalent of [ColourLove](https://github.com/kirualex/ColourLove))
 
 This project only purpose is to provide brief, clean and readable code in a dummy application. 
 It is heavily library based and MVC oriented and shows mecanisms like downloading, storing and displaying data from a webservice.
