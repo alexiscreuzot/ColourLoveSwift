@@ -18,7 +18,7 @@ class ColorsVC: UIViewController, UITableViewDataSource, UITableViewDelegate, UI
 
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-        self.title = "Colors"
+        self.title = L10n.ColorsVCTitle.string
     }
 
     override func viewWillAppear(animated: Bool) {

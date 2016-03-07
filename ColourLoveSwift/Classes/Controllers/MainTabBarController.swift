@@ -13,10 +13,10 @@ class MainTabBarController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        let colorNavController = UIStoryboard(type:.Colors).instantiateInitialViewController()
-        let palettesNavController = UIStoryboard(type:.Palettes).instantiateInitialViewController()
-        let patternsNavController = UIStoryboard(type: .Patterns).instantiateInitialViewController()
+        let colorNavController = StoryboardScene.Colors.initialViewController()
+        let palettesNavController = StoryboardScene.Palettes.initialViewController()
+        let patternsNavController = StoryboardScene.Patterns.initialViewController()
 
-        self.viewControllers = [colorNavController!, palettesNavController!, patternsNavController!]
+        self.viewControllers = [colorNavController, palettesNavController, patternsNavController]
     }
 }

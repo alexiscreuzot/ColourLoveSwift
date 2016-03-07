@@ -11,7 +11,6 @@
 		FA16D9581C230FCD00AA511E /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA16D9571C230FCD00AA511E /* API.swift */; };
 		FA3C6BA71C109724009CC995 /* NSObject+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3C6BA61C109724009CC995 /* NSObject+Extensions.swift */; };
 		FA4E1C0C1C15B25B009823D2 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA4E1C0B1C15B25B009823D2 /* MainTabBarController.swift */; };
-		FA4E1C0E1C15B295009823D2 /* UIStoryboard+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA4E1C0D1C15B295009823D2 /* UIStoryboard+Extensions.swift */; };
 		FA4E1C101C15BB9A009823D2 /* Color+Networking.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA4E1C0F1C15BB9A009823D2 /* Color+Networking.swift */; };
 		FA4E1C121C15BCA3009823D2 /* Palette+Networking.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA4E1C111C15BCA3009823D2 /* Palette+Networking.swift */; };
 		FA4E1C141C15BD32009823D2 /* Pattern+Networking.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA4E1C131C15BD32009823D2 /* Pattern+Networking.swift */; };
@@ -34,6 +33,12 @@
 		FA93144C1BFB670A00D3FE66 /* Pattern.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA93144B1BFB670A00D3FE66 /* Pattern.swift */; };
 		FA93144E1BFB685E00D3FE66 /* UIColor+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA93144D1BFB685E00D3FE66 /* UIColor+Extensions.swift */; };
 		FA9314501BFB6A7B00D3FE66 /* ColorCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA93144F1BFB6A7B00D3FE66 /* ColorCell.swift */; };
+		FAAE2D641C8D8E1B00167449 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = FAAE2D661C8D8E1B00167449 /* Localizable.strings */; };
+		FAAE2D691C8D8ED100167449 /* colors.txt in Resources */ = {isa = PBXBuildFile; fileRef = FAAE2D681C8D8ED100167449 /* colors.txt */; };
+		FAAE2D711C8D8FBC00167449 /* L10n.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAAE2D6D1C8D8FBC00167449 /* L10n.swift */; };
+		FAAE2D721C8D8FBC00167449 /* UIColor+Gen.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAAE2D6E1C8D8FBC00167449 /* UIColor+Gen.swift */; };
+		FAAE2D731C8D8FBC00167449 /* UIImage+Assets.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAAE2D6F1C8D8FBC00167449 /* UIImage+Assets.swift */; };
+		FAAE2D741C8D8FBC00167449 /* UIStoryboard+Gen.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAAE2D701C8D8FBC00167449 /* UIStoryboard+Gen.swift */; };
 		FAAEFFE91C15A691001B3ED8 /* Colors.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FAAEFFE81C15A691001B3ED8 /* Colors.storyboard */; };
 		FAAEFFEB1C15A69F001B3ED8 /* Palettes.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FAAEFFEA1C15A69F001B3ED8 /* Palettes.storyboard */; };
 		FAAEFFED1C15A6A7001B3ED8 /* Patterns.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FAAEFFEC1C15A6A7001B3ED8 /* Patterns.storyboard */; };
@@ -46,7 +51,6 @@
 		FA16D9571C230FCD00AA511E /* API.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 		FA3C6BA61C109724009CC995 /* NSObject+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSObject+Extensions.swift"; sourceTree = "<group>"; };
 		FA4E1C0B1C15B25B009823D2 /* MainTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
-		FA4E1C0D1C15B295009823D2 /* UIStoryboard+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIStoryboard+Extensions.swift"; sourceTree = "<group>"; };
 		FA4E1C0F1C15BB9A009823D2 /* Color+Networking.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Color+Networking.swift"; sourceTree = "<group>"; };
 		FA4E1C111C15BCA3009823D2 /* Palette+Networking.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Palette+Networking.swift"; sourceTree = "<group>"; };
 		FA4E1C131C15BD32009823D2 /* Pattern+Networking.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Pattern+Networking.swift"; sourceTree = "<group>"; };
@@ -72,6 +76,12 @@
 		FA93144B1BFB670A00D3FE66 /* Pattern.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Pattern.swift; sourceTree = "<group>"; };
 		FA93144D1BFB685E00D3FE66 /* UIColor+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Extensions.swift"; sourceTree = "<group>"; };
 		FA93144F1BFB6A7B00D3FE66 /* ColorCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorCell.swift; sourceTree = "<group>"; };
+		FAAE2D651C8D8E1B00167449 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
+		FAAE2D681C8D8ED100167449 /* colors.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = colors.txt; sourceTree = "<group>"; };
+		FAAE2D6D1C8D8FBC00167449 /* L10n.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = L10n.swift; sourceTree = "<group>"; };
+		FAAE2D6E1C8D8FBC00167449 /* UIColor+Gen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Gen.swift"; sourceTree = "<group>"; };
+		FAAE2D6F1C8D8FBC00167449 /* UIImage+Assets.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+Assets.swift"; sourceTree = "<group>"; };
+		FAAE2D701C8D8FBC00167449 /* UIStoryboard+Gen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIStoryboard+Gen.swift"; sourceTree = "<group>"; };
 		FAAEFFE81C15A691001B3ED8 /* Colors.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Colors.storyboard; sourceTree = "<group>"; };
 		FAAEFFEA1C15A69F001B3ED8 /* Palettes.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Palettes.storyboard; sourceTree = "<group>"; };
 		FAAEFFEC1C15A6A7001B3ED8 /* Patterns.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Patterns.storyboard; sourceTree = "<group>"; };
@@ -128,6 +138,7 @@
 			isa = PBXGroup;
 			children = (
 				FA9314311BFB60F000D3FE66 /* Classes */,
+				FAAE2D6C1C8D8FBC00167449 /* Swiftgen */,
 				FA9314331BFB610800D3FE66 /* Resources */,
 				FA9314451BFB65D700D3FE66 /* Supporting Files */,
 			);
@@ -162,9 +173,11 @@
 		FA9314331BFB610800D3FE66 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				FAAE2D681C8D8ED100167449 /* colors.txt */,
 				FA9314261BFB604100D3FE66 /* Assets.xcassets */,
 				FA93142B1BFB604100D3FE66 /* Info.plist */,
 				FAAEFFEE1C15A6B6001B3ED8 /* Storyboards */,
+				FAAE2D661C8D8E1B00167449 /* Localizable.strings */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -188,7 +201,6 @@
 			children = (
 				FA93144D1BFB685E00D3FE66 /* UIColor+Extensions.swift */,
 				FA3C6BA61C109724009CC995 /* NSObject+Extensions.swift */,
-				FA4E1C0D1C15B295009823D2 /* UIStoryboard+Extensions.swift */,
 				FA4E1C171C15C51D009823D2 /* Realm+Extensions.swift */,
 			);
 			path = Extensions;
@@ -197,8 +209,8 @@
 		FA93143F1BFB655000D3FE66 /* Colors */ = {
 			isa = PBXGroup;
 			children = (
-				FA93141F1BFB604100D3FE66 /* ColorsVC.swift */,
 				FA9314511BFB6A8100D3FE66 /* Cells */,
+				FA93141F1BFB604100D3FE66 /* ColorsVC.swift */,
 				FA9314361BFB614300D3FE66 /* ColorDetailVC.swift */,
 			);
 			path = Colors;
@@ -246,6 +258,17 @@
 			name = Cells;
 			sourceTree = "<group>";
 		};
+		FAAE2D6C1C8D8FBC00167449 /* Swiftgen */ = {
+			isa = PBXGroup;
+			children = (
+				FAAE2D6D1C8D8FBC00167449 /* L10n.swift */,
+				FAAE2D6E1C8D8FBC00167449 /* UIColor+Gen.swift */,
+				FAAE2D6F1C8D8FBC00167449 /* UIImage+Assets.swift */,
+				FAAE2D701C8D8FBC00167449 /* UIStoryboard+Gen.swift */,
+			);
+			path = Swiftgen;
+			sourceTree = "<group>";
+		};
 		FAAEFFE61C15A60C001B3ED8 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
@@ -282,6 +305,7 @@
 			buildConfigurationList = FA93142E1BFB604100D3FE66 /* Build configuration list for PBXNativeTarget "ColourLoveSwift" */;
 			buildPhases = (
 				F3BA19F8877BD75719EAAAF3 /* Check Pods Manifest.lock */,
+				FAAE2D5B1C8D87DA00167449 /* ShellScript */,
 				FA9314161BFB604100D3FE66 /* Sources */,
 				FA9314171BFB604100D3FE66 /* Frameworks */,
 				FA9314181BFB604100D3FE66 /* Resources */,
@@ -338,7 +362,9 @@
 			files = (
 				FA93142A1BFB604100D3FE66 /* LaunchScreen.storyboard in Resources */,
 				FAAEFFEB1C15A69F001B3ED8 /* Palettes.storyboard in Resources */,
+				FAAE2D691C8D8ED100167449 /* colors.txt in Resources */,
 				FA9314271BFB604100D3FE66 /* Assets.xcassets in Resources */,
+				FAAE2D641C8D8E1B00167449 /* Localizable.strings in Resources */,
 				FAAEFFED1C15A6A7001B3ED8 /* Patterns.storyboard in Resources */,
 				FAAEFFE91C15A691001B3ED8 /* Colors.storyboard in Resources */,
 				FA9314251BFB604100D3FE66 /* Main.storyboard in Resources */,
@@ -406,6 +432,19 @@
 			shellPath = /bin/sh;
 			shellScript = "if which swiftlint >/dev/null; then\nswiftlint\nelse\necho \"SwiftLint does not exist, download from https://github.com/realm/SwiftLint\"\nfi";
 		};
+		FAAE2D5B1C8D87DA00167449 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if hash swiftgen 2>/dev/null; then\nswiftgen strings --output \"${SRCROOT}/ColourLoveSwift/Swiftgen/L10n.swift\" \"${SRCROOT}/ColourLoveSwift/Resources/Strings/Base.lproj/Localizable.strings\"\nswiftgen images --output \"${SRCROOT}/ColourLoveSwift/Swiftgen/UIImage+Assets.swift\" \"${SRCROOT}/ColourLoveSwift/Resources/\"\nswiftgen storyboards --output \"${SRCROOT}/ColourLoveSwift/Swiftgen/UIStoryboard+Gen.swift\" \"${SRCROOT}/ColourLoveSwift/Resources/Storyboards/\"\nswiftgen colors --output \"${SRCROOT}/ColourLoveSwift/Swiftgen/UIColor+Gen.swift\" \"${SRCROOT}/ColourLoveSwift/Resources/colors.txt\"\nelse\necho \"Swiftgen does not exist, download from https://github.com/AliSoftware/SwiftGen\"\nfi";
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -421,20 +460,23 @@
 				FA4E1C101C15BB9A009823D2 /* Color+Networking.swift in Sources */,
 				FA93141E1BFB604100D3FE66 /* AppDelegate.swift in Sources */,
 				FA93143E1BFB634D00D3FE66 /* Constants.swift in Sources */,
+				FAAE2D711C8D8FBC00167449 /* L10n.swift in Sources */,
 				FA9314481BFB66EF00D3FE66 /* User.swift in Sources */,
 				FA9314441BFB65A300D3FE66 /* Color.swift in Sources */,
 				FA4E1C121C15BCA3009823D2 /* Palette+Networking.swift in Sources */,
 				FA93144E1BFB685E00D3FE66 /* UIColor+Extensions.swift in Sources */,
 				FA93144C1BFB670A00D3FE66 /* Pattern.swift in Sources */,
-				FA4E1C0E1C15B295009823D2 /* UIStoryboard+Extensions.swift in Sources */,
 				FA3C6BA71C109724009CC995 /* NSObject+Extensions.swift in Sources */,
 				FA93144A1BFB66FD00D3FE66 /* Palette.swift in Sources */,
+				FAAE2D741C8D8FBC00167449 /* UIStoryboard+Gen.swift in Sources */,
+				FAAE2D721C8D8FBC00167449 /* UIColor+Gen.swift in Sources */,
 				FA4E1C1A1C15D7C9009823D2 /* PatternCell.swift in Sources */,
 				FA93143B1BFB617100D3FE66 /* UserDetailVC.swift in Sources */,
 				FA4E1C141C15BD32009823D2 /* Pattern+Networking.swift in Sources */,
 				FA9314501BFB6A7B00D3FE66 /* ColorCell.swift in Sources */,
 				FA16D9581C230FCD00AA511E /* API.swift in Sources */,
 				FA9314201BFB604100D3FE66 /* ColorsVC.swift in Sources */,
+				FAAE2D731C8D8FBC00167449 /* UIImage+Assets.swift in Sources */,
 				FA4E1C161C15BEDA009823D2 /* PaletteCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -456,6 +498,15 @@
 				FA9314291BFB604100D3FE66 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		FAAE2D661C8D8E1B00167449 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				FAAE2D651C8D8E1B00167449 /* Base */,
+			);
+			name = Localizable.strings;
+			path = Strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

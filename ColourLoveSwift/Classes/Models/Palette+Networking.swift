@@ -27,7 +27,7 @@ extension Palette {
         }
     }
 
-    static func parsePalettesJSON(JSON : Array<[String: AnyObject]>) {
+    static func parsePalettesJSON(JSON: Array<[String: AnyObject]>) {
         let realm = RLMRealm.defaultRealm()
         do {
             try realm.transactionWithBlock {

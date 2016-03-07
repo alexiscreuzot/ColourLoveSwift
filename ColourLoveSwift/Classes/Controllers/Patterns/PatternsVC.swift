@@ -18,7 +18,7 @@ class PatternsVC: UIViewController, UICollectionViewDataSource, UICollectionView
 
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-        self.title = "Patterns"
+        self.title = L10n.PatternsVCTitle.string
     }
 
     override func viewWillAppear(animated: Bool) {

@@ -18,7 +18,7 @@ class PalettesVC: UIViewController, UITableViewDataSource, UITableViewDelegate, 
 
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-        self.title = "Palettes"
+        self.title = L10n.PalettesVCTitle.string
     }
 
     override func viewWillAppear(animated: Bool) {

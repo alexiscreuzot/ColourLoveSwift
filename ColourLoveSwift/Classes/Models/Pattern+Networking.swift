@@ -27,7 +27,7 @@ extension Pattern {
         }
     }
 
-    static func parsePatternsJSON(JSON : Array<[String: AnyObject]>) {
+    static func parsePatternsJSON(JSON: Array<[String: AnyObject]>) {
         let realm = RLMRealm.defaultRealm()
         do {
             try realm.transactionWithBlock {

@@ -27,7 +27,7 @@ extension Color {
         }
     }
 
-    static func parseColorsJSON(JSON : Array<[String: AnyObject]>) {
+    static func parseColorsJSON(JSON: Array<[String: AnyObject]>) {
         let realm = RLMRealm.defaultRealm()
         do {
             try realm.transactionWithBlock {
