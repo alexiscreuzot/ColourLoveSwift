@@ -10,8 +10,13 @@ import UIKit
 
 class ColorDetailVC: UIViewController {
 
+    var color = Color()
+
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        self.title = color.title
+        self.view.backgroundColor = color.uicolor()
     }
 
 }

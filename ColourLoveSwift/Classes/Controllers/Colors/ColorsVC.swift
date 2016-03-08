@@ -73,6 +73,12 @@ class ColorsVC: UIViewController, UITableViewDataSource, UITableViewDelegate, UI
         return ColorCell.height()
     }
 
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        let detailController = StoryboardScene.Colors.ColorDetailVCScene.viewController() as! ColorDetailVC
+        detailController.color = Color.allObjects()[UInt(indexPath.row)] as! Color
+        self.navigationController?.pushViewController(detailController, animated: true)
+    }
+
     // MARK: - SearchBar Delegate
 
     func searchBarSearchButtonClicked(searchBar: UISearchBar) {

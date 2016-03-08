@@ -38,6 +38,11 @@ struct StoryboardScene {
   enum Colors: String, StoryboardSceneType {
     static let storyboardName = "Colors"
 
+    case ColorDetailVCScene = "ColorDetailVC"
+    static func instantiateColorDetailVC() -> ColorDetailVC {
+      return StoryboardScene.Colors.ColorDetailVCScene.viewController() as! ColorDetailVC
+    }
+
     case ColorsVCScene = "ColorsVC"
     static func instantiateColorsVC() -> ColorsVC {
       return StoryboardScene.Colors.ColorsVCScene.viewController() as! ColorsVC
